@@ -5,6 +5,6 @@ plexmediaserver:
     - TZ=America/New_York
     - CHANGE_CONFIG_DIR_OWNERSHIP=false
   volumes:
-  - ${PLEX_CONFIG}:/config
-  - ${PLEX_MEDIA}:/data
+  - /mnt/naspool/configs/plexmediaserver:/config
+  - /mnt/naspool/Tv Shows:/data
   # - ${PLEX_TRANSCODE}:/transcode
