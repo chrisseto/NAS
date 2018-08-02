@@ -1,0 +1,10 @@
+plexmediaserver:
+  image: plexinc/pms-docker
+  network: host
+  environment:
+    - TZ=America/New_York
+    - CHANGE_CONFIG_DIR_OWNERSHIP=false
+  volumes:
+  - ${PLEX_CONFIG}:/config
+  - ${PLEX_MEDIA}:/data
+  # - ${PLEX_TRANSCODE}:/transcode
