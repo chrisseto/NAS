@@ -16,7 +16,7 @@ if [ -e $STAMP ]; then
     # setup wonka in the console container
     /setup_wonka.sh console
     # setup wonka in this container so the import works
-    /setup_wonka.sh zfs
+    /setup_wonka.sh zfs-latest
 
     # re-init the zpool from disk
     zpool import -a
@@ -126,7 +126,7 @@ system-docker build --network=host -t zfs-tools arch/
 modprobe zfs
 
 /dist/arch/setup_wonka.sh console
-/dist/arch/setup_wonka.sh zfs
+/dist/arch/setup_wonka.sh zfs-latest
 zpool import -a
 
 touch $STAMP

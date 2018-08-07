@@ -1,5 +1,5 @@
 zfs-latest:
-  image: ${REGISTRY_DOMAIN}/chrisseto/rancheros-zfs:0.7.9-1
+  image: ${REGISTRY_DOMAIN}/chrisseto/rancheros-zfs:0.7.9-2
   command: ./build.sh
   privileged: "true"
   labels:
