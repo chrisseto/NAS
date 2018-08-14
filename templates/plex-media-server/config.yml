@@ -1,0 +1,8 @@
+name: Plex Media Server
+description: |
+  Stream all your stuff to all your devices, anywhere.
+version: 1.13-rancher1
+category: Applications
+license: 
+maintainer: Chris Seto
+projectURL: https://github.com/chrisseto/nas

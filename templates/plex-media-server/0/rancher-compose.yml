@@ -1,0 +1,58 @@
+version: '2'
+
+catalog:
+  name: Plex Media Server
+  version: 1.13-rancher1
+  minimum_rancher_version: v0.59.0
+  maintainer: Chris Seto
+  uuid: plex-0
+
+  questions:
+    - variable: claim_token
+      label: Plex Claim Token
+      description: |
+        The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim
+      default: ''
+      required: true
+      type: string
+
+    - variable: timezone
+      label: Timezone
+      description: |
+        Set the timezone inside the container. For example: Europe/London. The complete list can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      default: America/New_York
+      required: false
+      type: string
+
+    - variable: config_path
+      label: Host Config Path
+      description: 'TODO'
+      default: ''
+      required: true
+      type: string
+
+    - variable: transcode_path
+      label: Host Transcode Path
+      description: 'TODO'
+      # default: ''
+      required: false
+      type: string
+
+    - variable: media_path
+      label: Host Media Path
+      description: 'TODO'
+      default: ''
+      required: true
+      type: string
+
+services:
+  plex:
+    scale: 1
+    retain_ip: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 5000
+      port: 32400
+      unhealthy_threshold: 3
+      interval: 5000
+      strategy: recreate
