@@ -1,0 +1,8 @@
+name: Sonarr
+description: |
+  Smart PVR for newsgroup and bittorrent users. 
+version: 152-rancher1
+category: Applications
+license: 
+maintainer: Chris Seto
+projectURL: https://github.com/chrisseto/nas
