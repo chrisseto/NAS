@@ -19,7 +19,7 @@ services:
       - downloads:/downloads
 
 volumes:
-  - downloads
+  downloads:
 
 networks:
   # use the default network driver for inter-container links
