@@ -27,8 +27,8 @@ networks:
 
   sonarr_vlan:
     driver: macvlan
-    driver_opts:
-      parent: ens160.30
+    # driver_opts:
+    #   parent: ens160.30
     ipam:
       config:
-        - subnet: 100.98.26.0/24
+        - subnet: 10.0.1.0/24
