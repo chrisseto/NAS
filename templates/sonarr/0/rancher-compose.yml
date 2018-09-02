@@ -52,7 +52,7 @@ catalog:
 
 
 services:
-  plex:
+  sonarr:
     scale: 1
     retain_ip: true
     health_check:
