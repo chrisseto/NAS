@@ -4,6 +4,9 @@ services:
   sonarr:
     image: linuxserver/sonarr:${sonarr_version}
     restart: always
+    networks:
+      - private
+      - sonarr_vlan
     # labels:
     #   io.rancher.container.hostname_override: container_name
     # ports:
