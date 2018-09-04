@@ -4,10 +4,10 @@ services:
   sonarr:
     image: linuxserver/sonarr:${sonarr_version}
     restart: always
-    labels:
-      io.rancher.container.hostname_override: container_name
-    ports:
-      - 80:8989
+    # labels:
+    #   io.rancher.container.hostname_override: container_name
+    # ports:
+    #   - 8989:8989
     environment:
       - TZ=${timezone}
     networks:
@@ -27,8 +27,10 @@ networks:
 
   sonarr_vlan:
     driver: macvlan
-    # driver_opts:
-    #   parent: ens160.30
+    driver_opts:
+      parent: eth0
     ipam:
       config:
-        - subnet: 10.0.1.0/24
+        - subnet: 10.0.0.0/24
+          gateway: 10.0.0.1
+          ip_range: 10.0.0.112/28 # IP from this pool are assigned automatically
