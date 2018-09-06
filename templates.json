@@ -1,0 +1,24 @@
+[
+  {
+    "type": "container",
+    "title": "Sonarr",
+    "description": "Smart PVR for newsgroup and bittorrent users.",
+    "categories": [],
+    "platform": "linux",
+    "logo": "https://sonarr.tv/img/logo.png",
+    "image": "linuxserver/sonarr:latest",
+    "ports": [
+      "8989/tcp"
+    ],
+    "volumes": [
+      "/config",
+      "/tv",
+      "/downloads",
+      {
+        "container": "/etc/localtime",
+        "bind": "/etc/localtime",
+        "readonly": true
+      }
+    ]
+  }
+]
