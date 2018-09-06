@@ -1,6 +1,67 @@
 [
   {
     "type": "container",
+    "title": "Radarr",
+    "description": "A fork of Sonarr to work with movies à la Couchpotato",
+    "categories": [],
+    "platform": "linux",
+    "logo": "https://radarr.video/img/logo.png",
+    "image": "linuxserver/radarr:latest",
+    "ports": [
+      "7878/tcp"
+    ],
+    "volumes": [
+      "/config",
+      "/movies",
+      "/downloads",
+      {
+        "container": "/etc/localtime",
+        "bind": "/etc/localtime",
+        "readonly": true
+      }
+    ],
+    "env": [{
+      "name": "TZ",
+      "label": "Time Zone",
+      "description": "Set the timezone inside the container. For example: Europe/London. The complete list can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+      "default": "America/New_York",
+      "select": "an array of possible values, will generate a select input (optional)"
+    }]
+  },
+
+  {
+    "type": "container",
+    "title": "Sabnzbd",
+    "description": "Free and easy binary newsreader",
+    "categories": [],
+    "platform": "linux",
+    "logo": "https://raw.githubusercontent.com/sabnzbd/sabnzbd/develop/interfaces/Config/templates/staticcfg/images/logo-small.svg",
+    "image": "linuxserver/sabnzbd:latest",
+    "ports": [
+      "8080/tcp",
+      "9090/tcp"
+    ],
+    "volumes": [
+      "/config",
+      "/downloads",
+      "/incomplete-downloads",
+      {
+        "container": "/etc/localtime",
+        "bind": "/etc/localtime",
+        "readonly": true
+      }
+    ],
+    "env": [{
+      "name": "TZ",
+      "label": "Time Zone",
+      "description": "Set the timezone inside the container. For example: Europe/London. The complete list can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+      "default": "America/New_York",
+      "select": "an array of possible values, will generate a select input (optional)"
+    }]
+  },
+
+  {
+    "type": "container",
     "title": "Sonarr",
     "description": "Smart PVR for newsgroup and bittorrent users.",
     "categories": [],
@@ -19,6 +80,13 @@
         "bind": "/etc/localtime",
         "readonly": true
       }
-    ]
+    ],
+    "env": [{
+      "name": "TZ",
+      "label": "Time Zone",
+      "description": "Set the timezone inside the container. For example: Europe/London. The complete list can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+      "default": "America/New_York",
+      "select": "an array of possible values, will generate a select input (optional)"
+    }]
   }
 ]
