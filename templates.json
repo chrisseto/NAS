@@ -1,6 +1,46 @@
 [
   {
     "type": "container",
+    "title": "Plex Media Server",
+    "description": "Stream all your stuff to all your devices, anywhere.",
+    "categories": [],
+    "platform": "linux",
+    "logo": "https://zhf1943ap1t4f26r11i05c7l-wpengine.netdna-ssl.com/wp-content/uploads/2018/03/plex-pms-icon.jpg",
+    "image": "linuxserver/plexinc/pms-docker",
+    "ports": [
+      "32400:32400/tcp",
+      "3005:3005/tcp",
+      "8324:8324/tcp",
+      "32469:32469/tcp",
+      "1900:1900/udp",
+      "32410:32410/udp",
+      "32412:32412/udp",
+      "32413:32413/udp",
+      "32414:32414/udp"
+    ],
+    "volumes": [
+      "/config",
+      "/data",
+      "/transcode"
+    ],
+    "env": [{
+      "name": "TZ",
+      "label": "Time Zone",
+      "description": "Set the timezone inside the container. For example: Europe/London. The complete list can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+      "default": "America/New_York"
+    }, {
+      "name": "PLEX_CLAIM",
+      "label": "Plex Claim Token",
+      "description": "TODO"
+    }, {
+      "name": "ADVERTISE_IP",
+      "label": "The URL to advertise (http://<IP>:32400/)",
+      "description": "TODO"
+    }]
+  },
+
+  {
+    "type": "container",
     "title": "Radarr",
     "description": "A fork of Sonarr to work with movies à la Couchpotato",
     "categories": [],
@@ -24,14 +64,14 @@
       "name": "TZ",
       "label": "Time Zone",
       "description": "Set the timezone inside the container. For example: Europe/London. The complete list can be found here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
-      "default": "America/New_York",
-      "select": "an array of possible values, will generate a select input (optional)"
+      "default": "America/New_York"
     }]
   },
 
   {
     "type": "container",
     "title": "Sabnzbd",
+    "command": "/usr/bin/sabnzbdplus --config-file /config",
     "description": "Free and easy binary newsreader",
     "categories": [],
     "platform": "linux",
